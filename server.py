@@ -10,6 +10,8 @@ print(
 
 command = input(Fore.GREEN + "[+] Enter a command: ")
 
+clients = []
+nicknames = []
 
 if command == "tcp_chat":
     host = socket.gethostname()
@@ -18,6 +20,7 @@ if command == "tcp_chat":
     nickname = input("Enter your nickname: ")
     BuffSize = int(2048)
 
+    
     def client():
         s = socket.socket()
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -25,7 +28,11 @@ if command == "tcp_chat":
         print("Waiting for the client to connect")
         s.listen(1)
         conn, addr = s.accept()
+        clients.append(addr)
+
         nickname2 = conn.recv(BuffSize).decode()
+        nicknames.append(nickname2)
+
         conn.send(nickname.encode())
         print(f"Connection from: {addr} with the username: {nickname2}")
         while 1:
