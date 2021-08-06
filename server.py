@@ -6,7 +6,7 @@ import threading
 
 colorama.init(autoreset=True)
 
-print("\n" + Fore.BLUE + "[!] Enter tcp_chat to start the chat" + "\n" + Fore.BLUE +  "[!] Enter camera_chat to start a camera chat" + "\n" + Fore.BLUE + "[!] Enter exit to exit" + "\n")
+print("\n" + Fore.BLUE + "[!] Enter tcp_chat to start the chat" + "\n" + Fore.BLUE + "[!] Enter exit to exit" + "\n")
 
 command = input(Fore.GREEN + "[+] Enter a command: ")
 
